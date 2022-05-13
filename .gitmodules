@@ -1,3 +1,4 @@
 [submodule "docs/app"]
 path = docs/app
-url = git:https://github.com/ericwick/react-ts-component-library.git
+url = git://github.com/ericwick/react-ts-component-library.git
+ignore = dirty
