@@ -1,0 +1,13 @@
+.navbar {
+  height: 100%;
+  position: sticky;
+  background-color: #66c3ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+
+  &__link {
+    color: white;
+  }
+}

@@ -1,9 +1,12 @@
 .accordion {
   width: 100%;
+  height: auto;
   display: flex;
   background: none;
   flex-direction: column;
   margin: 8px 0;
+  background-color: red;
+  color: black;
 
   &__chevron {
     width: 16px;
@@ -30,7 +33,7 @@
 
     &--opened {
       background: none;
-      background-color: #e5e5e5;
+      //   background-color: #e5e5e5;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
       border-bottom: none;
@@ -39,7 +42,7 @@
     }
     &--closed {
       background: none;
-      background-color: white;
+      //   background-color: white;
       border-bottom: 1px solid black;
       border-right: none;
       border-top-left-radius: 8px;

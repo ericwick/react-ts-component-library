@@ -1,7 +1,18 @@
 $base-color: #000000;
-$primary-color: grey;
-$secondary-color: lightblue;
-$tertiary-color: orange;
+$primary-color: rgb(41, 128, 228);
+$secondary-color: rgb(230, 170, 59);
+$tertiary-color: gray;
 
 $border-light: lightgray;
 $border-dark: darkgray;
+
+$background-color: #fff;
+
+$smallspacer: '3px';
+$mediumspacer: '6px';
+$largespacer: '12px';
+
+$success: green;
+$warning: yellow;
+$error: red;
+$warn: red;

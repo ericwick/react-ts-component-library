@@ -1,0 +1,27 @@
+.loadable-text {
+  font-family: 'Sniglet', cursive;
+  font-weight: 900;
+  -webkit-animation: flash ease-in-out 2s infinite;
+  animation: flash ease-in-out 2s infinite;
+}
+
+.static-text {
+  font-family: 'Sniglet', cursive;
+  font-weight: 900;
+  font-size: 48px;
+}
+
+@keyframes flash {
+  0% {
+    font-size: 48px;
+    opacity: 1;
+  }
+  50% {
+    font-size: 45px;
+    opacity: 0.8;
+  }
+  100% {
+    font-size: 48px;
+    opacity: 1;
+  }
+}

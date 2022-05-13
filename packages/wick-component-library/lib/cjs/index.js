@@ -1423,22 +1423,55 @@ var classnames = {exports: {}};
 
 var classname = classnames.exports;
 
-const Accordion = ({ title, body }) => {
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = ".accordion {\n  width: 100%;\n  height: auto;\n  display: flex;\n  background: none;\n  flex-direction: column;\n  margin: 8px 0;\n  background-color: red;\n  color: black;\n}\n.accordion__chevron {\n  width: 16px;\n}\n.accordion__chevron--active {\n  transform: rotate(270deg);\n}\n.accordion__chevron--inactive {\n  transform: rotate(180deg);\n}\n.accordion__header {\n  background: none;\n  color: inherit;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0px 16px;\n  font-size: 16px;\n}\n.accordion__header--opened {\n  background: none;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n  border-bottom: none;\n  border-right: none;\n  border: none;\n}\n.accordion__header--closed {\n  background: none;\n  border-bottom: 1px solid black;\n  border-right: none;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n  border: none;\n}\n.accordion__header:focus {\n  outline: none;\n}\n.accordion__header:hover {\n  background-color: #cccccc;\n}\n.accordion__body--opened {\n  background-color: white;\n  border-bottom: 1px solid black;\n  padding: 8px 8px 8px 24px;\n}\n.accordion__body--closed {\n  display: none;\n}";
+styleInject(css_248z);
+
+function Accordion(props) {
     const [active, setActive] = require$$0.useState(false);
-    const headerClassName = classname('accordion-header', {
-        'accordion-header-opened': active,
-        'accordion-header-closed': !active
+    const headerClassName = classname('accordion__header', {
+        'accordion__header--opened': active,
+        'accordion__header--closed': !active
     });
-    const bodyClassName = classname('accordion-body', {
-        'accordion-body-opened': active,
-        'accordion-body-closed': !active
+    const bodyClassName = classname('accordion__body', {
+        'accordion__body--opened': active,
+        'accordion__body--closed': !active
     });
     //   const chevronClassName = classname('accordion__chevron', {
     //     'accordion__chevron--opened': active,
     //     'accordion__chevron--closed': !active
     //   });
-    return (jsxRuntime.exports.jsxs("div", { className: 'accordion', children: [jsxRuntime.exports.jsxs("button", { className: headerClassName, onClick: () => setActive(!active), children: [jsxRuntime.exports.jsx("p", { className: 'accordion-header-title', children: title }), jsxRuntime.exports.jsx("img", { alt: active ? 'Accordion Open' : 'Accordion Closed' })] }), jsxRuntime.exports.jsx("div", { className: bodyClassName, children: jsxRuntime.exports.jsx("p", { className: 'accordion-body-content', children: body }) })] }));
-};
+    const toggleAccordion = () => {
+        setActive(!active);
+    };
+    return (jsxRuntime.exports.jsxs("div", { className: 'accordion', children: [jsxRuntime.exports.jsxs("button", { className: headerClassName, onClick: toggleAccordion, children: [jsxRuntime.exports.jsx("p", { className: 'accordion__header--title', children: props.title }), jsxRuntime.exports.jsx("img", {})] }), jsxRuntime.exports.jsx("div", { className: bodyClassName, children: jsxRuntime.exports.jsx("p", { className: 'accordion__body--content', children: props.body }) })] }));
+}
 
 exports.Accordion = Accordion;
 exports.Hello = Hello;

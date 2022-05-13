@@ -1,4 +1,4 @@
-const {nodeResolve} = require('@rollup/plugin-node-resolve');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
 const typescript = require('rollup-plugin-typescript2');
 const postCSS = require('rollup-plugin-postcss');
@@ -9,22 +9,30 @@ module.exports = {
   output: [
     {
       file: './lib/cjs/index.js',
-      format: 'cjs',
+      format: 'cjs'
     },
     {
       file: './lib/esm/index.js',
-      format: 'es',
-    },
+      format: 'es'
+    }
   ],
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
+      }
+    ]
+  },
   external: [...Object.keys(pkg.peerDependencies || {})],
   plugins: [
     nodeResolve(),
     commonjs(),
     typescript({
-      typescript: require('typescript'),
+      typescript: require('typescript')
     }),
     postCSS({
-      plugins: [require('autoprefixer')],
-    }),
-  ],
+      plugins: [require('autoprefixer')]
+    })
+  ]
 };
