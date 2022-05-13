@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import classname from 'classnames';
 
-interface AccordionProps {
-  title?: string;
-  body?: any;
+export interface AccordionProps {
+  title: string;
+  body: any;
 }
 
-export default function Accordion({ title, body }: AccordionProps) {
+const Accordion: React.FC<AccordionProps> = ({ title, body }) => {
   const [active, setActive] = useState(false);
   const headerClassName = classname('accordion-header', {
     'accordion-header-opened': active,
@@ -32,4 +32,6 @@ export default function Accordion({ title, body }: AccordionProps) {
       </div>
     </div>
   );
-}
+};
+
+export default Accordion;

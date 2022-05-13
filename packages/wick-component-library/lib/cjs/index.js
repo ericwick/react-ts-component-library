@@ -1361,41 +1361,84 @@ function requireReactJsxRuntime_development () {
 	}
 } (jsxRuntime));
 
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
+const Hello = ({ name }) => (jsxRuntime.exports.jsx("div", { children: jsxRuntime.exports.jsxs("p", { children: ["Hello, ", name] }) }));
 
-  if (!css || typeof document === 'undefined') { return; }
+var classnames = {exports: {}};
 
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
+/*!
+  Copyright (c) 2018 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
 
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
+(function (module) {
+	/* global define */
 
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
+	(function () {
 
-var css_248z$1 = "\r\n.styles-module_helloCss__47KP0 {\r\n    margin: 0;\r\n    padding: 0;\r\n    color: red;\r\n    font-weight: bold;\r\n    font-size: 2rem;\r\n  }";
-var cssClasses = {"helloCss":"styles-module_helloCss__47KP0"};
-styleInject(css_248z$1);
+		var hasOwn = {}.hasOwnProperty;
 
-var css_248z = ".styles-module_helloScss__iYcFF {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 600px;\n  height: 200px;\n  border: 1px solid red;\n  border-radius: 8px; }\n";
-var scssClasses = {"helloScss":"styles-module_helloScss__iYcFF"};
-styleInject(css_248z);
+		function classNames() {
+			var classes = [];
 
-const Hello = ({ name }) => (jsxRuntime.exports.jsx("div", { className: scssClasses.helloScss, children: jsxRuntime.exports.jsxs("p", { className: cssClasses.helloCss, children: ["Hello, ", name] }) }));
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
 
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					if (arg.length) {
+						var inner = classNames.apply(null, arg);
+						if (inner) {
+							classes.push(inner);
+						}
+					}
+				} else if (argType === 'object') {
+					if (arg.toString === Object.prototype.toString) {
+						for (var key in arg) {
+							if (hasOwn.call(arg, key) && arg[key]) {
+								classes.push(key);
+							}
+						}
+					} else {
+						classes.push(arg.toString());
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (module.exports) {
+			classNames.default = classNames;
+			module.exports = classNames;
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+} (classnames));
+
+var classname = classnames.exports;
+
+const Accordion = ({ title, body }) => {
+    const [active, setActive] = require$$0.useState(false);
+    const headerClassName = classname('accordion-header', {
+        'accordion-header-opened': active,
+        'accordion-header-closed': !active
+    });
+    const bodyClassName = classname('accordion-body', {
+        'accordion-body-opened': active,
+        'accordion-body-closed': !active
+    });
+    //   const chevronClassName = classname('accordion__chevron', {
+    //     'accordion__chevron--opened': active,
+    //     'accordion__chevron--closed': !active
+    //   });
+    return (jsxRuntime.exports.jsxs("div", { className: 'accordion', children: [jsxRuntime.exports.jsxs("button", { className: headerClassName, onClick: () => setActive(!active), children: [jsxRuntime.exports.jsx("p", { className: 'accordion-header-title', children: title }), jsxRuntime.exports.jsx("img", { alt: active ? 'Accordion Open' : 'Accordion Closed' })] }), jsxRuntime.exports.jsx("div", { className: bodyClassName, children: jsxRuntime.exports.jsx("p", { className: 'accordion-body-content', children: body }) })] }));
+};
+
+exports.Accordion = Accordion;
 exports.Hello = Hello;
