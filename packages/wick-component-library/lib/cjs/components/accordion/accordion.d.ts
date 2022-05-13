@@ -1,4 +1,5 @@
 import React from 'react';
+import './accordion.scss';
 export interface AccordionProps {
     title: string;
     body: any;
