@@ -1,0 +1,24 @@
+{
+  "name": "learn-to-build-react-package",
+  "private": true,
+  "description": "Learn to build react package",
+  "keywords": [],
+  "author": "Eric Wickham",
+  "workspaces": [
+    "docs/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build --scope wick-component-library",
+    "clean": "lerna run clean --scope wick-component-library",
+    "watch": "lerna run watch --scope wick-component-library",
+    "package": "lerna exec --scope wick-component-library -- npm pack"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
+    "lerna": "^4.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  }
+}
