@@ -1450,10 +1450,17 @@ function styleInject(css, ref) {
   }
 }
 
+<<<<<<< HEAD
 var css_248z = ".accordion {\n  width: 100%;\n  height: auto;\n  display: flex;\n  background: none;\n  flex-direction: column;\n  margin: 8px 0;\n  background-color: red;\n  color: black;\n}\n.accordion__chevron {\n  width: 16px;\n}\n.accordion__chevron--active {\n  transform: rotate(270deg);\n}\n.accordion__chevron--inactive {\n  transform: rotate(180deg);\n}\n.accordion__header {\n  background: none;\n  color: inherit;\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0px 16px;\n  font-size: 16px;\n}\n.accordion__header--opened {\n  background: none;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n  border-bottom: none;\n  border-right: none;\n  border: none;\n}\n.accordion__header--closed {\n  background: none;\n  border-bottom: 1px solid black;\n  border-right: none;\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n  border: none;\n}\n.accordion__header:focus {\n  outline: none;\n}\n.accordion__header:hover {\n  background-color: #cccccc;\n}\n.accordion__body--opened {\n  background-color: white;\n  border-bottom: 1px solid black;\n  padding: 8px 8px 8px 24px;\n}\n.accordion__body--closed {\n  display: none;\n}";
 styleInject(css_248z);
 
 function Accordion(props) {
+=======
+var css_248z = "@use '../../sass/components/accordion';\n";
+styleInject(css_248z);
+
+const Accordion = ({ title, body }) => {
+>>>>>>> 8c8894dd25773e9a786b5a6a0451492371387ce5
     const [active, setActive] = require$$0.useState(false);
     const headerClassName = classname('accordion__header', {
         'accordion__header--opened': active,
