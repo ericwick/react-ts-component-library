@@ -16,16 +16,10 @@ const components = [
   { name: 'Input', link: '/pages/input-docs' },
   { name: 'Loader', link: '/pages/loader-docs' },
   { name: 'Modal', link: '/pages/modal-docs' },
-  {
-    name: 'Notification',
-    link: '/pages/notification-docs'
-  },
+  { name: 'Notification', link: '/pages/notification-docs' },
   { name: 'Pagination', link: '/pages/pagination-docs' },
   { name: 'Picker', link: '/pages/picker-docs' },
-  {
-    name: 'Progress Bar',
-    link: '/pages/progress-bar-docs'
-  },
+  { name: 'Progress Bar', link: '/pages/progress-bar-docs' },
   { name: 'Radio Buttons', link: '/pages/radio-docs' },
   { name: 'Search Field', link: '/pages/search-docs' },
   { name: 'Slider', link: '/pages/slider-docs' },
