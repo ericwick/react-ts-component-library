@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import AccordionDoc from './pages/AccordionDocs/accordion-docs';
 
 import { Hello } from 'wick-component-library';
 
@@ -19,6 +20,7 @@ function App() {
           Learn React
         </a>
         <Hello name='Wickham' />
+        <AccordionDoc />
       </header>
     </div>
   );
